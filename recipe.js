@@ -1,24 +1,31 @@
-function createNode(element) {
-	// create type of element you pass in the param
-	return document.createElement(element);
-}
+// function createNode(element) {
+// 	// create type of element you pass in the param
+// 	return document.createElement(element);
+// }
 
-function append(parent, el) {
-	// apped the second param to the first one
-	return parent.appendChild(el);
-}
+// function append(parent, el) {
+// 	// apped the second param to the first one
+// 	return parent.appendChild(el);
+// }
 
 
 const recipeList = document.getElementById('recipes');
-const apiPath = "http://food2fork.com/api/search?"
-var ingredients = "";
-const apiKey = "key={6adb1e8b4d4c0af1c1fd8c928b910d67}";
-const url = apiPath + apiKey + &q= + ingredients;
+const url = "http://food2fork.com/api/search?"
+//var ingredients = "";
+//const apiKey = "key={6adb1e8b4d4c0af1c1fd8c928b910d67}";
+//const url = apiPath + apiKey + '&q=' + ingredients;
 
-fetch(url)
+fetch(url, {
+	key: 6adb1e8b4d4c0af1c1fd8c928b910d67,
+	q: //ingredients separated by commas,
+	sort: r
+})
+
+
 	// transform into json
 	.then((resp) => resp.json()) 
-
+	console.log(resp);
+	
 	.then(function(data) {
 		// create and append the recipe list to the ul
 		let recipes = data.results;
