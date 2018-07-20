@@ -59,3 +59,29 @@ fetch(url, {
 	function askForRecipes() {
 		loadJSON(url, gotData)
 	}
+
+
+	////////////////////////////    ///////
+
+document.getElementById('ingredients').addEventListener('submit', searchReq);
+
+function searchReq(e) {
+	e.preventDefault(); // stops form from submitting to a file
+
+	let ingredient = document.getElementById('food').value;
+	
+	let firsthalfUrl = 'http://food2fork.com/api/search?key={6adb1e8b4d4c0af1c1fd8c928b910d67}&q=';
+	let secondhalfUrl = ingredient;
+	let url = firsthalfUrl + secondhalfUrl;
+
+	fetch(url, {
+		method: 'GET',
+		headers: {
+			'Accept': 'application/json, text/plain, */*',
+			'Content-type': 'application/json'
+		},
+		body:JSON.stringify({title:title, body:body})
+	})
+	.then((res) => res.json())
+	.then((data) => console.log(data))
+}
