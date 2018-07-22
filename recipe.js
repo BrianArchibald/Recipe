@@ -8,80 +8,77 @@
 // 	return parent.appendChild(el);
 // }
 
-
-const recipeList = document.getElementById('recipes');
-const url = "http://food2fork.com/api/search?"
+const recipeList = document.getElementById("recipes");
+const url = "http://food2fork.com/api/search";
 //var ingredients = "";
 //const apiKey = "key={6adb1e8b4d4c0af1c1fd8c928b910d67}";
 //const url = apiPath + apiKey + '&q=' + ingredients;
 
+const form = new FormData();
+form.append("key", "6adb1e8b4d4c0af1c1fd8c928b910d67");
+form.append("q", "potato");
+
 fetch(url, {
-	key: 6adb1e8b4d4c0af1c1fd8c928b910d67,
-	q: //ingredients separated by commas,
-	sort: r
+  method: "post",
+  body: form
 })
+  .then(resp => resp.json())
+  // console.log(resp);
 
+  .then(function(data) {
+    // create and append the recipe list to the ul
+    //let recipes = data;
 
-	// transform into json
-	.then((resp) => resp.json()) 
-	console.log(resp);
-	
-	.then(function(data) {
-		// create and append the recipe list to the ul
-		let recipes = data.results;
+    let html = "";
+    data.recipes.map((recipe, index) => {
+      html += `
+        <li>
+          <img src=${recipe.image_url + '?key=6adb1e8b4d4c0af1c1fd8c928b910d67'}/>
+          <span>${recipe.title}</span>
+        </li>
+      `;
 
-		return recipes.map(function(recipe) {
-			let li = createNode('li'),
-				img = createNode('img'),
-				span = createNode('span');
+      if(index === 5) break;
+    });
 
-		img.src = recipe.picture.food2fork; // need to set the image source
+    document.getElementById('recipes').innerHTML = html;
+  })
 
-		span.innerHTML = `${recipe.name}`; // HTML of span to be name of recipe
+  .catch(function(error) {
+    // if there is an error, catch here
+    console.log(error);
+  });
 
-		append(li, img);
-		apppend(li, span);
-		append(ul, li);
+const submitButton = document.getElementById("submit");
 
-		})
-	})
+submitButton.addEventListener(onclick, askForRecipes);
 
-	.catch(function(error) {
-		// if there is an error, catch here
-		console.log(error);
-	});
+function askForRecipes() {
+  loadJSON(url, gotData);
+}
 
+////////////////////////////    ///////
 
-	const submitButton = document.getElementById('submit');
-
-	submitButton.addEventListener(onclick, askForRecipes);
-
-	function askForRecipes() {
-		loadJSON(url, gotData)
-	}
-
-
-	////////////////////////////    ///////
-
-document.getElementById('ingredients').addEventListener('submit', searchReq);
+document.getElementById("ingredients").addEventListener("submit", searchReq);
 
 function searchReq(e) {
-	e.preventDefault(); // stops form from submitting to a file
+  e.preventDefault(); // stops form from submitting to a file
 
-	let ingredient = document.getElementById('food').value;
-	
-	let firsthalfUrl = 'http://food2fork.com/api/search?key={6adb1e8b4d4c0af1c1fd8c928b910d67}&q=';
-	let secondhalfUrl = ingredient;
-	let url = firsthalfUrl + secondhalfUrl;
+  let ingredient = document.getElementById("food").value;
 
-	fetch(url, {
-		method: 'GET',
-		headers: {
-			'Accept': 'application/json, text/plain, */*',
-			'Content-type': 'application/json'
-		},
-		body:JSON.stringify({title:title, body:body})
-	})
-	.then((res) => res.json())
-	.then((data) => console.log(data))
+  let firsthalfUrl =
+    "http://food2fork.com/api/search?key={6adb1e8b4d4c0af1c1fd8c928b910d67}&q=";
+  let secondhalfUrl = ingredient;
+  let url = firsthalfUrl + secondhalfUrl;
+
+  fetch(url, {
+    method: "GET",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify({ title: title, body: body })
+  })
+    .then(res => res.json())
+    .then(data => console.log(data));
 }
