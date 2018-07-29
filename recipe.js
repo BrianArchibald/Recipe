@@ -8,7 +8,7 @@
 // 	return parent.appendChild(el);
 // }
 
-const recipeList = document.getElementById("recipes");
+//const recipeList = document.getElementById("recipes");
 const url = "http://food2fork.com/api/search";
 //var ingredients = "";
 //const apiKey = "key={6adb1e8b4d4c0af1c1fd8c928b910d67}";
@@ -38,7 +38,7 @@ fetch(url, {
         </li>
       `;
 
-      if(index === 5) break;
+     
     });
 
     document.getElementById('recipes').innerHTML = html;
@@ -49,36 +49,36 @@ fetch(url, {
     console.log(error);
   });
 
-const submitButton = document.getElementById("submit");
+// const submitButton = document.getElementById("submit");
 
-submitButton.addEventListener(onclick, askForRecipes);
+// submitButton.addEventListener(onclick, askForRecipes);
 
-function askForRecipes() {
-  loadJSON(url, gotData);
-}
+// function askForRecipes() {
+//   loadJSON(url, gotData);
+// }
 
 ////////////////////////////    ///////
 
-document.getElementById("ingredients").addEventListener("submit", searchReq);
+// document.getElementById("ingredients").addEventListener("submit", searchReq);
 
-function searchReq(e) {
-  e.preventDefault(); // stops form from submitting to a file
+// function searchReq(e) {
+//   e.preventDefault(); // stops form from submitting to a file
 
-  let ingredient = document.getElementById("food").value;
+//   let ingredient = document.getElementById("food").value;
 
-  let firsthalfUrl =
-    "http://food2fork.com/api/search?key={6adb1e8b4d4c0af1c1fd8c928b910d67}&q=";
-  let secondhalfUrl = ingredient;
-  let url = firsthalfUrl + secondhalfUrl;
+//   let firsthalfUrl =
+//     "http://food2fork.com/api/search?key={6adb1e8b4d4c0af1c1fd8c928b910d67}&q=";
+//   let secondhalfUrl = ingredient;
+//   let url = firsthalfUrl + secondhalfUrl;
 
-  fetch(url, {
-    method: "GET",
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-type": "application/json"
-    },
-    body: JSON.stringify({ title: title, body: body })
-  })
-    .then(res => res.json())
-    .then(data => console.log(data));
-}
+//   fetch(url, {
+//     method: "GET",
+//     headers: {
+//       Accept: "application/json, text/plain, */*",
+//       "Content-type": "application/json"
+//     },
+//     body: JSON.stringify({ title: title, body: body })
+//   })
+//     .then(res => res.json())
+//     .then(data => console.log(data));
+// }

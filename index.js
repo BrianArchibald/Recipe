@@ -18,7 +18,7 @@ const url = "http://localhost:3000/getRecipe";
 // var FormData = require('form-data');
 // var fs = require('fs');
 
-
+var food = document.getElementById("food").value;
 const form = new FormData();
 // form.append("key", "6adb1e8b4d4c0af1c1fd8c928b910d67");
 // form.append("q", "potato");
@@ -26,7 +26,7 @@ const form = new FormData();
 fetch(url, {
   method: "post",
   body: JSON.stringify({
-  	"query" : document.getElementById
+  	"query" : food
   }),
   headers: {
     'Accept': 'application/json'
