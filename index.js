@@ -9,7 +9,7 @@
 // }
 
 //const recipeList = document.getElementById("recipes");
-// const url = "http://food2fork.com/api/search";
+const apiKey = "6adb1e8b4d4c0af1c1fd8c928b910d67";
 const url = "http://localhost:3000/getRecipe";
 //var ingredients = "";
 //const apiKey = "key={6adb1e8b4d4c0af1c1fd8c928b910d67}";
@@ -19,9 +19,12 @@ const url = "http://localhost:3000/getRecipe";
 // var fs = require('fs');
 
 var food = document.getElementById("food").value;
+console.log(food);
 const form = new FormData();
 // form.append("key", "6adb1e8b4d4c0af1c1fd8c928b910d67");
 // form.append("q", "potato");
+
+var response;
 
 fetch(url, {
   method: "post",
@@ -40,11 +43,13 @@ fetch(url, {
     //let recipes = data;
     console.log(data)
 
+    response = JSON.parse(data);
     let html = "";
-    data.recipes.map((recipe, index) => {
+    response.recipes.map((recipe, index) => {
+    	//http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
       html += `
         <li>
-          <img src=${recipe.image_url + '?key=6adb1e8b4d4c0af1c1fd8c928b910d67'}/>
+          <img src=${recipe.image_url} + '?key=${apiKey}'/>
           <span>${recipe.title}</span>
         </li>
       `;
@@ -59,6 +64,14 @@ fetch(url, {
     // if there is an error, catch here
     console.log(error);
   });
+
+
+  // function filter(param, response) {
+  	
+  // }
+
+
+
 
 // const submitButton = document.getElementById("submit");
 
