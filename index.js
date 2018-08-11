@@ -26,6 +26,7 @@ const form = new FormData();
 
 var response;
 
+function sumbitFood () {
 fetch(url, {
   method: "post",
   body: JSON.stringify({
@@ -35,13 +36,14 @@ fetch(url, {
     'Accept': 'application/json'
   },
 })
+
   .then(resp => resp.json())
   // console.log(resp);
 
   .then(function(data) {
     // create and append the recipe list to the ul
     //let recipes = data;
-    console.log(data)
+    console.log(data);
 
     response = JSON.parse(data);
     let html = "";
@@ -63,8 +65,9 @@ fetch(url, {
   .catch(function(error) {
     // if there is an error, catch here
     console.log(error);
-  });
 
+  });
+}
 
   // function filter(param, response) {
   	
