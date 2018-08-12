@@ -18,63 +18,57 @@ const url = "http://localhost:3000/getRecipe";
 // var FormData = require('form-data');
 // var fs = require('fs');
 
-var food = document.getElementById("food").value;
-console.log(food);
-const form = new FormData();
+// console.log(food);
+// const form = new FormData();
 // form.append("key", "6adb1e8b4d4c0af1c1fd8c928b910d67");
 // form.append("q", "potato");
 
 var response;
 
-function sumbitFood () {
-fetch(url, {
-  method: "post",
-  body: JSON.stringify({
-  	"query" : food
-  }),
-  headers: {
-    'Accept': 'application/json'
-  },
-})
+function submitFood() {
+  var food = document.getElementById("food").value;
 
-  .then(resp => resp.json())
-  // console.log(resp);
+  fetch(url, {
+    method: "post",
+    body: JSON.stringify({
+      query: food
+    }),
+    headers: {
+      Accept: "application/json"
+    }
+  })
+    .then(resp => resp.json())
+    // console.log(resp);
 
-  .then(function(data) {
-    // create and append the recipe list to the ul
-    //let recipes = data;
-    console.log(data);
+    .then(function(data) {
+      // create and append the recipe list to the ul
+      //let recipes = data;
+      console.log(data);
 
-    response = JSON.parse(data);
-    let html = "";
-    response.recipes.map((recipe, index) => {
-    	//http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
-      html += `
+      response = JSON.parse(data);
+      let html = "";
+      response.recipes.map((recipe, index) => {
+        //http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
+        html += `
         <li>
           <img src=${recipe.image_url} + '?key=${apiKey}'/>
           <span>${recipe.title}</span>
         </li>
       `;
+      });
 
-     
+      document.getElementById("recipes").innerHTML = html;
+    })
+
+    .catch(function(error) {
+      // if there is an error, catch here
+      console.log(error);
     });
-
-    document.getElementById('recipes').innerHTML = html;
-  })
-
-  .catch(function(error) {
-    // if there is an error, catch here
-    console.log(error);
-
-  });
 }
 
-  // function filter(param, response) {
-  	
-  // }
+// function filter(param, response) {
 
-
-
+// }
 
 // const submitButton = document.getElementById("submit");
 
