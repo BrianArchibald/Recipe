@@ -16,6 +16,64 @@
   </form>
 
   <ul id="recipes"></ul>
+
+
+
+
+
+  <div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-lg-12 col-md-12">
+					<img class="logo" src="logo.png">
+					<form id="ingredients" class="text-center">
+						<div class="filters">
+							<label>Filter by</label>
+							<select id="ddnFilter">
+								<!-- <option id="-1">Select any option</option> -->
+								<option id="title">Ingredients</option>
+								<option id="publisher">Publisher</option>
+							</select>
+							<input type="text" id="food" placeholder="Filter value" maxlength="15">
+							
+							<!--<input type="text" id="filter" placeholder="Filter value" maxlength="15"> 
+							<button class="btn btn-secondary" type="button" id="btnFilter">FILTER</button>
+						-->
+							<button class="btn btn-secondary" value="Submit" type="button" id="btnFilter" onclick="submitFood()">SEARCH</button>
+						</div>
+						
+					</form>
+
+					<ul id="recipes"></ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-12 col-md-12">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+					    <li class="page-item"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item"><a class="page-link" href="#">4</a></li>
+					    <li class="page-item"><a class="page-link" href="#">5</a></li>
+					    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+					  </ul>
+					</nav>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-12 col-md-12">
+					<div id="panel_pager"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
 </body>
 <script type="text/javascript" src="index.js"></script>
 </html>
