@@ -18,8 +18,8 @@ app.post("/getRecipe", (req, res, next) => {
     {
       url: URL,
       formData: {
-        key: APIKey,
-        q: JSON.parse(req.body).query
+       key: APIKey,
+       q: JSON.parse(req.body).query
       }
     },
     (err, response) => {
