@@ -1,5 +1,5 @@
 html {
-	font-family: 'Khand', sans-serif;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 body{
@@ -29,6 +29,7 @@ body{
 	border-radius: 4px;
 	outline: none;
 	padding: 10px;
+	font-size: 14px;
 }
 #food:focus {
     border: 2px solid #555;
@@ -50,21 +51,29 @@ body{
     background-color: #a4a8ad;
     color: white;
 }
+.recipe-container {
+	max-width: 1000px;
+	margin-top: 10vh;
+}
 
 #recipes {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
 	justify-content: center;
-	max-width: 900px;
+	
 	margin: auto;
+}
+li img{
+	max-width: 300px;
+	max-height: 300px;
 }
 
 
 ul, ul li{
 	list-style: none;
 	list-style-type: none;
-	max-width: 400px;
+	max-width: 300px;
 	box-shadow: 0 8px 15px rgba(0,0,0,.1);
 }
 
@@ -78,6 +87,17 @@ li{
 	flex-wrap: wrap;
 }
 
+.recipe-info {
+	text-align: center;
+}
+
+.a-link {
+	text-align: center;
+	text-decoration: none;
+}
+
+
+/*
 li .recipe-img{
 	width: 100%;
 	height: 220px;
@@ -100,7 +120,7 @@ li .recipe-img{
 
 .recipe-title p{
 	line-height: 1em;
-	font-family: 'Inconsolata', sans-serif;
+	
 	font-size: 15px;
 }
 .logo{
@@ -115,3 +135,4 @@ li .recipe-img{
 		height: 215px;
 	}
 }
+*/

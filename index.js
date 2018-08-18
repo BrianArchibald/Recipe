@@ -22,24 +22,23 @@ function submitFood() {
       let html = "";
       response.recipes.map((recipe, index) => {
         
-        html += `
-        <li>
-          <img src=${recipe.image_url} + '?key=${apiKey}'/>
-          <span>${recipe.title}</span>
-        </li>
-      `;
+        html += 
+      //   <li>
+      //     <img src=${recipe.image_url} + '?key=${apiKey}'/>
+      //     <span>${recipe.title}</span>
+      //   </li>
+      // ;
 
-      // <li id=${this.index} class="col-lg-4 col-md-4 col-xs-12">            
-      //       <img src=${this.recipe.image_url} class="recipe-img" />
-      //       <span class="recipe-title">
-      //       <p><b>Title:</b> ${this.recipe.title}</p>
-      //       <p><b>Publisher:</b> ${this.recipe.publisher}</p>
-      //       <p><b>Social Rank:</b> ${this.recipe.social_rank}</p>
-      //       <a class="recipe-link" href="${this.recipe.source_url}"> 
-      //       <p><b>Recipe Website:</b> "Click Here"</p>
-      //       </span>
-      //       </a>
-      //   </li>;
+      `<li id=${index}>            
+            <img src=${recipe.image_url} class="recipe-img" />
+            <span class="recipe-info">
+            <p class="recipe-title">${recipe.title}</p>
+            <p class="publisher"><b>By</b> ${recipe.publisher}</p>
+            <a class="a-link" href="${recipe.source_url}"> 
+            <p class="link"><b>Click for Recipe</p>
+            </span>
+            </a>
+        </li>`;
       });
       document.getElementById("recipes").innerHTML = html;
     })
