@@ -1,16 +1,26 @@
 const apiKey = "6adb1e8b4d4c0af1c1fd8c928b910d67";
 const url = "http://localhost:3000/getRecipe";
-//const button = document.getElementById("button");
-const input = document.getElementById("food");
+//const input = document.getElementById("food");
 
-food.addEventListener("keyup", function(event) {
-  event.preventDefault();
-  if (event.keyCode === 13) {
-    console.log("13 pressed");
-    document.getElementById("button").click();
-    //submitFood();
-  }
-})
+// Request: http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
+
+// food.replace(/," "/g, %20);
+
+document.getElementById("ingredients").addEventListener("submit", function(e) {
+    submitFood(document.getElementById("food"));
+    e.preventDefault();
+}, false);
+
+
+
+// input.addEventListener("keyup", function(event) {
+//   event.preventDefault();
+//   if (event.keyCode === 13) {
+//     console.log("13 pressed");
+//     //document.getElementById("button").click();
+//     submitFood();
+//   }
+// })
 
 var response;
 function submitFood() {
