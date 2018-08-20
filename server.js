@@ -13,17 +13,21 @@ app.post("/getRecipe", (req, res, next) => {
     {
       url: URL,
       formData: {
-        key: APIKey,
-        q: JSON.parse(req.body).query
+      	key: APIKey,
+      	q: JSON.parse(req.body).query
       }
     },
+
     (err, response) => {
       if (err) return res.json({ message: "Failed" });
       res.json(response.body);
     }
+
   );
+
 });
 app.listen(3000, () => {
   console.log("Server is listening...");
+
 });
 
