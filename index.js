@@ -8,6 +8,8 @@ const url = "http://localhost:3000/getRecipe";
 // var food = document.getElementById("food").value;
 // food.replace(",", "%20")
 
+//food.replace(/,/g, "");
+
 document.getElementById("ingredients").addEventListener("submit", function(e) {
     submitFood(document.getElementById("food"));
     e.preventDefault();
@@ -15,7 +17,8 @@ document.getElementById("ingredients").addEventListener("submit", function(e) {
 
 var response;
 function submitFood() {
-  var food = document.getElementById("food").value;
+  let food = document.getElementById("food").value;
+  food.replace(/,/g, "");
 //document.getElementById("loading").style.display = "block";
   console.log(food);
   
