@@ -17,9 +17,10 @@ document.getElementById("ingredients").addEventListener("submit", function(e) {
 
 var response;
 function submitFood() {
-  let food = document.getElementById("food").value;
-  food.replace(/,/g, "");
-//document.getElementById("loading").style.display = "block";
+  let preFood = document.getElementById("food").value;
+  let food = preFood.replace(/,/g, "");
+  document.getElementById("recipe-container").style.display = "hidden";
+  document.getElementById("loading").style.display = "block";
   console.log(food);
   
   fetch(url, {
@@ -41,7 +42,8 @@ function submitFood() {
       let html = "";
       response.recipes.map((recipe, index) => {
         //if(data != undefind) {          // or recipe.count === 0
-        //document.getElementById("loading").style.display = "none";
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("recipe-container").style.display = "visible";
         
         html += 
       //   <li>
