@@ -16,7 +16,7 @@ document.getElementById("ingredients").addEventListener("submit", function(e) {
 var response;
 function submitFood() {
   var food = document.getElementById("food").value;
-
+//document.getElementById("loading").style.display = "block";
   console.log(food);
   
   fetch(url, {
@@ -37,6 +37,8 @@ function submitFood() {
       response = JSON.parse(data);
       let html = "";
       response.recipes.map((recipe, index) => {
+        //if(data != undefind) {          // or recipe.count === 0
+        //document.getElementById("loading").style.display = "none";
         
         html += 
       //   <li>
@@ -56,6 +58,10 @@ function submitFood() {
             </a>
         </li>`;
       });
+
+      // }else{
+            //   html = `<div class="no-data">No Items Found.</div>`;
+            // }
       document.getElementById("recipes").innerHTML = html;
     })
     .catch(function(error) {
