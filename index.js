@@ -11,7 +11,14 @@ const url = "http://localhost:3000/getRecipe";
 //food.replace(/,/g, "");
 
 document.getElementById("ingredients").addEventListener("submit", function(e) {
+
+
+      
+      document.getElementById("loading").style.display = "block";  
     submitFood(document.getElementById("food"));
+
+      
+
     e.preventDefault();
 }, false);
 
@@ -19,8 +26,9 @@ var response;
 function submitFood() {
   let preFood = document.getElementById("food").value;
   let food = preFood.replace(/,/g, "");
-  document.getElementById("recipe-container").style.display = "hidden";
-  document.getElementById("loading").style.display = "block";
+
+  document.getElementById("recipes").style.display = "hidden";
+
   console.log(food);
   
   fetch(url, {
@@ -37,11 +45,19 @@ function submitFood() {
     
     .then(function(data) {
       
+        
+
       console.log(data);
       response = JSON.parse(data);
       let html = "";
-      response.recipes.map((recipe, index) => {
-        //if(data != undefind) {          // or recipe.count === 0
+        if(response.count > 0) {
+      
+
+        response.recipes.map((recipe, index) => {
+       
+
+          
+
         document.getElementById("loading").style.display = "none";
         document.getElementById("recipe-container").style.display = "visible";
         
@@ -52,24 +68,26 @@ function submitFood() {
       //   </li>
       // ;
 
-      `<li id=${index}>            
-            <img src=${recipe.image_url} class="recipe-img" />
-            <span class="recipe-info">
-            <p class="recipe-title">${recipe.title}</p>
-            <p class="publisher"><b>By</b> ${recipe.publisher}</p>
-            <a class="a-link" href="${recipe.source_url}"> 
-            <p class="link"><b>Click for Recipe</p>
-            </span>
-            </a>
-        </li>`;
+        `<li id=${index}>            
+              <img src=${recipe.image_url} class="recipe-img" />
+              <span class="recipe-info">
+              <p class="recipe-title">${recipe.title}</p>
+              <p class="publisher"><b>By</b> ${recipe.publisher}</p>
+              <a class="a-link" href="${recipe.source_url}"> 
+              <p class="link"><b>Click for Recipe</p>
+              </span>
+              </a>
+          </li>`;
       });
 
-      // }else{
-            //   html = `<div class="no-data">No Items Found.</div>`;
-            // }
+      }else{
+              html = `<div class="no-data">No Items Found.</div>`;
+            }
       document.getElementById("recipes").innerHTML = html;
     })
     .catch(function(error) {
+
+
       console.log(error);
     });
 }
