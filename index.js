@@ -14,7 +14,7 @@ document.getElementById("ingredients").addEventListener("submit", function(e) {
 
 
       
-      document.getElementById("loading").style.display = "block";  
+    //document.getElementById("loading").style.display = "block";  
     submitFood(document.getElementById("food"));
 
       
@@ -27,7 +27,7 @@ function submitFood() {
   let preFood = document.getElementById("food").value;
   let food = preFood.replace(/,/g, "");
 
-  document.getElementById("recipes").style.display = "hidden";
+  //document.getElementById("recipes").style.display = "hidden";
 
   console.log(food);
   
@@ -58,16 +58,10 @@ function submitFood() {
 
           
 
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("recipe-container").style.display = "visible";
+        // document.getElementById("loading").style.display = "none";
+        // document.getElementById("recipe-container").style.display = "visible";
         
         html += 
-      //   <li>
-      //     <img src=${recipe.image_url} + '?key=${apiKey}'/>
-      //     <span>${recipe.title}</span>
-      //   </li>
-      // ;
-
         `<li id=${index}>            
               <img src=${recipe.image_url} class="recipe-img" />
               <span class="recipe-info">
@@ -81,8 +75,13 @@ function submitFood() {
       });
 
       }else{
-              html = `<div class="no-data">No Items Found.</div>`;
+
+            
+              document.getElementById("no-data-container").innerHTML = noData;  
+              noData = 
+              `<div class="no-data">No Items Found.</div>`;
             }
+          
       document.getElementById("recipes").innerHTML = html;
     })
     .catch(function(error) {
