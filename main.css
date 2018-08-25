@@ -65,7 +65,7 @@ body{
 .recipe-container {
 	max-width: 1000px;
 	margin-top: 10vh;
-
+	margin-left: 4vh;
 
 
 	
@@ -172,5 +172,7 @@ li{
 	text-align: center;
 	font-size: 26px;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
-
+	margin: 15vh 0 0 22vh;
+    width: 400px;
+   
 }

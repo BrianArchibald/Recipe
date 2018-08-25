@@ -77,11 +77,11 @@ function submitFood() {
       }else{
 
             
-              document.getElementById("no-data-container").innerHTML = noData;  
-              noData = 
+              
+              html = 
               `<div class="no-data">No Items Found.</div>`;
             }
-          
+      //document.getElementById("no-data-container").innerHTML = noData;      
       document.getElementById("recipes").innerHTML = html;
     })
     .catch(function(error) {
