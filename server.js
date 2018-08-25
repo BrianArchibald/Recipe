@@ -22,12 +22,10 @@ app.post("/getRecipe", (req, res, next) => {
       if (err) return res.json({ message: "Failed" });
       res.json(response.body);
     }
-
   );
 
 });
 app.listen(3000, () => {
   console.log("Server is listening...");
-
 });
 

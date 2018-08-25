@@ -1,7 +1,6 @@
 html {
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
-
 body{
 	background: #f9fafb;
 	margin: 0;
@@ -11,7 +10,6 @@ body{
 	background-attachment: fixed;
 }
 .container{
-	
 	height: 100%;
 	width: 60vw;
 	margin: auto;
@@ -66,40 +64,30 @@ body{
 	max-width: 1000px;
 	margin-top: 10vh;
 	margin-left: 4vh;
-
-
-	
 }
-
 #recipes {
 	display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 60px;
 	justify-content: center;
 	margin: auto;
-
 }
 li img{
 	width: 300px;
     height: 280px;
 }
-
 .recipe-title {
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	font-weight: 700;
     font-size: 1.2em;
-
 }
 .publisher {
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	font-weight: 700;
 }
-
-
 ul {
 	max-width: 300px;
 }
-
 ul li{
 	list-style: none;
 	list-style-type: none;
@@ -108,57 +96,28 @@ ul li{
 	background-color: #f9fafb;
 	border: 1px solid #727272;
 }
-
-
-
 a:link {
 	font-family: 'Permanent Marker', cursive;
 	text-decoration: none;
 	letter-spacing: .6px;
 	color: #424242;
-	font-size: 1.3em;
-	
+	font-size: 1.3em;	
 }
 a:link:hover {
 	color: #551a8b;
 }
-
 li{
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 }
-
 .recipe-info {
 	text-align: center;
 }
-
 .a-link {
 	text-align: center;
 	text-decoration: none;
 }
-
-/* Loading animation */
-
-#loading {
-  	display: none;
-
-  	position: absolute;
-  	left: 50%;
-  	top: 50%;
-  	z-index: 1;
-  	width: 70px;
-  	height: 70px;
-  	margin: -75px 0 0 -75px;
-  	border: 16px solid #f3f3f3;
-  	border-radius: 50%;
-  	border-top: 16px solid #3498db;
-  	width: 50px;
-  	height: 50px;
-  	-webkit-animation: spin 2s linear infinite;
-  	animation: spin 2s linear infinite;
-}
-
 .no-data-container {
 
 	display: flex;
@@ -173,6 +132,5 @@ li{
 	font-size: 26px;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	margin: 15vh 0 0 22vh;
-    width: 400px;
-   
+    width: 400px; 
 }
