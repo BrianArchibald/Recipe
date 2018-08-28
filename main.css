@@ -63,7 +63,6 @@ body{
 .recipe-container {
 	max-width: 1000px;
 	margin-top: 10vh;
-	margin-left: 4vh;
 }
 #recipes {
 	display: grid;
@@ -71,6 +70,7 @@ body{
     grid-gap: 60px;
 	justify-content: center;
 	margin: auto;
+	padding: 0;
 }
 li img{
 	width: 300px;
@@ -131,6 +131,16 @@ li{
 	text-align: center;
 	font-size: 26px;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
-	margin: 15vh 0 0 22vh;
+	margin: 15vh 0;
     width: 400px; 
+}
+
+@media screen and (max-width: 735px) {
+	#recipes {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+	ul li {
+		max-width: 70%;
+	}
 }
