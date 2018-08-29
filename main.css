@@ -42,7 +42,6 @@ body{
 #food:focus {
     border: 2px solid #555;
 }
-
 .button-input {
 	padding: 1vh;
 }
@@ -119,7 +118,6 @@ li{
 	text-decoration: none;
 }
 .no-data-container {
-
 	display: flex;
 	justify-content: center;
 	width: 400px;
@@ -140,7 +138,26 @@ li{
 		display: grid;
 		grid-template-columns: 1fr;
 	}
-	ul li {
-		max-width: 70%;
+	.recipe-info {
+	    text-align: center;
+	    width: 300px;
+	    background: white;
+	}
+	#food {
+		width: 200px;
+	}
+}
+@media screen and (max-width: 322px) {
+	#food {
+		width: 110px;
+	}
+	.recipe-info {
+	    text-align: center;
+	    width: 200px;
+	    background: white;
+	}
+	li img{
+	width: 200px;
+    height: 200px;
 	}
 }
