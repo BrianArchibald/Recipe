@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const request = require("request");
 const APIKey = "6adb1e8b4d4c0af1c1fd8c928b910d67";
-const URL = "http://food2fork.com/api/search";
+const URL = "https://www.food2fork.com/api/search";
 
 app.use(cors());
 app.use(bodyParser.text());
