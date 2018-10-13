@@ -3,11 +3,21 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const request = require("request");
-const APIKey = "6adb1e8b4d4c0af1c1fd8c928b910d67";
+const APIKey = process.env.APIKey;
 const URL = "https://www.food2fork.com/api/search";
+require('dotenv').config()
 
 app.use(cors());
 app.use(bodyParser.text());
+
+app.get('/', (req, res) => {
+  return res.json({
+    message: 'Welcome',
+  })
+})
+
+console.log(process.env.APIKey)
+
 app.post("/getRecipe", (req, res, next) => {
   request.post(
     {
@@ -23,6 +33,6 @@ app.post("/getRecipe", (req, res, next) => {
     }
   );
 });
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server is listening...");
 });
