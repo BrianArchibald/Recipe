@@ -1,4 +1,4 @@
-const APIKey = process.env.APIKey;
+const apiKey = "6adb1e8b4d4c0af1c1fd8c928b910d67";
 const url = "http://localhost:3000/getRecipe";
 
 document.getElementById("ingredients").addEventListener("submit", function(e) {
@@ -21,6 +21,7 @@ function submitFood() {
     }
   })
     .then(resp => resp.json())
+    
     .then(function(data) {
       response = JSON.parse(data);
       let html = "";
