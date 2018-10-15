@@ -4,10 +4,19 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const request = require("request");
 const APIKey = "6adb1e8b4d4c0af1c1fd8c928b910d67";
+const APIKey = process.env.APIKey;
 const URL = "https://www.food2fork.com/api/search";
+const path = require('path');
 
 app.use(cors());
 app.use(bodyParser.text());
+
+app.use(express.static('public'));
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
+
 app.post("/getRecipe", (req, res, next) => {
   request.post(
     {

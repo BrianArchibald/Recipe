@@ -1,5 +1,5 @@
 const apiKey = "6adb1e8b4d4c0af1c1fd8c928b910d67";
-const url = "http://localhost:3000/getRecipe";
+const url = "/getRecipe";
 
 document.getElementById("ingredients").addEventListener("submit", function(e) {
     submitFood(document.getElementById("food"));
