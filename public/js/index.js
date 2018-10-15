@@ -20,6 +20,7 @@ function submitFood() {
     }
   })
     .then(resp => resp.json())
+    
     .then(function(data) {
       response = JSON.parse(data);
       let html = "";
